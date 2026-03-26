@@ -1,5 +1,5 @@
 """
-CLI for fieldops_parser.
+CLI for mdparser.
 
 Commands:
   parse  <file.md> [...]       Parse markdown → JSON (stdout or --out)
@@ -77,7 +77,7 @@ def cmd_batch(args):
 
 
 def main():
-    ap = argparse.ArgumentParser(prog="fieldops_parser")
+    ap = argparse.ArgumentParser(prog="mdparser")
     sub = ap.add_subparsers(dest="command", required=True)
 
     # parse

@@ -1,5 +1,5 @@
 """
-Bidirectional Markdown <-> JSON parser for FieldOps documents.
+Bidirectional Markdown <-> JSON parser.
 
 Schema:
 {
@@ -31,7 +31,6 @@ def parse(path: str) -> dict:
     current_section = None
     prose_buf = []
     section_footer_buf = []
-    doc_footer_buf = []
     in_section_footer = False
 
     def flush_prose(target: dict, key: str):
@@ -108,10 +107,6 @@ def parse(path: str) -> dict:
         flush_prose(current_section, "prose")
     else:
         flush_prose(doc, "description")
-
-    footer = "\n".join(doc_footer_buf).strip()
-    if footer:
-        doc["footer"] = footer
 
     return doc
 
